@@ -2,6 +2,7 @@ from __future__ import annotations
 import os
 
 import platform
+import random
 
 from typing import Any, List, Dict, Type, TypeVar, Union, Optional
 from .devices import *
@@ -9,7 +10,6 @@ from .exception import *
 from .utils import *
 
 import typing
-
 
 _T = TypeVar("_T")
 _RT = TypeVar("_RT")
@@ -19,7 +19,7 @@ class BaseAPIMetaClass(BaseMetaClass):
     """Super high level tactic metaclass"""
 
     def __new__(
-        cls: Type[_T], clsName: str, bases: Tuple[type], attrs: Dict[str, Any]
+            cls: Type[_T], clsName: str, bases: Tuple[type], attrs: Dict[str, Any]
     ) -> _T:
 
         result = super().__new__(cls, clsName, bases, attrs)
@@ -41,12 +41,12 @@ class BaseAPIMetaClass(BaseMetaClass):
         for attr, val in glob.__dict__.items():
 
             if (
-                attr.startswith(f"_{cls.__base__.__name__}__")
-                or attr.startswith(f"_{cls.__name__}__")
-                or attr.startswith("__")
-                and attr.endswith("__")
-                or type(val) == classmethod
-                or callable(val)
+                    attr.startswith(f"_{cls.__base__.__name__}__")
+                    or attr.startswith(f"_{cls.__name__}__")
+                    or attr.startswith("__")
+                    and attr.endswith("__")
+                    or type(val) == classmethod
+                    or callable(val)
             ):
                 continue
 
@@ -105,15 +105,15 @@ class APIData(object, metaclass=BaseAPIMetaClass):
 
     @typing.overload
     def __init__(
-        self,
-        api_id: int,
-        api_hash: str,
-        device_model: str = None,
-        system_version: str = None,
-        app_version: str = None,
-        lang_code: str = None,
-        system_lang_code: str = None,
-        lang_pack: str = None,
+            self,
+            api_id: int,
+            api_hash: str,
+            device_model: str = None,
+            system_version: str = None,
+            app_version: str = None,
+            lang_code: str = None,
+            system_lang_code: str = None,
+            lang_pack: str = None,
     ) -> None:
         """
         Create your own customized API
@@ -151,15 +151,15 @@ class APIData(object, metaclass=BaseAPIMetaClass):
         """
 
     def __init__(
-        self,
-        api_id: int = None,
-        api_hash: str = None,
-        device_model: str = None,
-        system_version: str = None,
-        app_version: str = None,
-        lang_code: str = None,
-        system_lang_code: str = None,
-        lang_pack: str = None,
+            self,
+            api_id: int = None,
+            api_hash: str = None,
+            device_model: str = None,
+            system_version: str = None,
+            app_version: str = None,
+            lang_code: str = None,
+            system_lang_code: str = None,
+            lang_pack: str = None,
     ) -> None:
 
         Expects(
@@ -362,7 +362,7 @@ class API(BaseObject):
         @typing.overload
         @classmethod
         def Generate(
-            cls: Type[_T], system: str = "windows", unique_id: str = None
+                cls: Type[_T], system: str = "windows", unique_id: str = None
         ) -> _T:
             """
             Generate random TelegramDesktop devices
@@ -413,9 +413,157 @@ class API(BaseObject):
         @typing.overload
         @classmethod
         def Generate(
-            cls: Type[_T], system: str = "random", unique_id: str = None
+                cls: Type[_T], system: str = "random", unique_id: str = None
         ) -> _T:
             pass
+
+        @classmethod
+        def _generate_tdesktop_app_version(cls):
+            app_versions = [
+                "5.11.1",
+                "5.11.0",
+                "5.10.7",
+                "5.10.6",
+                "5.10.5",
+                "5.10.4",
+                "5.10.3",
+                "5.10.2",
+                "5.10.1",
+                "5.10.0",
+                "5.9.2",
+                "5.9.1",
+                "5.9.0",
+                "5.8.5",
+                "5.8.4",
+                "5.8.3",
+                "5.8.2",
+                "5.8.1",
+                "5.8.0",
+                "5.7.4",
+                "5.7.3",
+                "5.7.2",
+                "5.7.1",
+                "5.7.0",
+                "5.6.4",
+                "5.6.3",
+                "5.6.2",
+                "5.6.1",
+                "5.6.0",
+                "5.5.8",
+                "5.5.7",
+                "5.5.6",
+                "5.5.5",
+                "5.5.4",
+                "5.5.3",
+                "5.5.2",
+                "5.5.1",
+                "5.5.0",
+                "5.4.6",
+                "5.4.5",
+                "5.4.4",
+                "5.4.3",
+                "5.4.2",
+                "5.4.1",
+                "5.4.0",
+                "5.3.2",
+                "5.3.1",
+                "5.3.0",
+                "5.2.6",
+                "5.2.5",
+                "5.2.4",
+                "5.2.3",
+                "5.2.2",
+                "5.2.1",
+                "5.2.0",
+                "5.1.8",
+                "5.1.7",
+                "5.1.6",
+                "5.1.5",
+                "5.1.4",
+                "5.1.3",
+                "5.1.2",
+                "5.1.1",
+                "5.1.0",
+                "5.0.6",
+                "5.0.5",
+                "5.0.4",
+                "5.0.3",
+                "5.0.2",
+                "5.0.1",
+                "5.0.0",
+                "4.16.10",
+                "4.16.9",
+                "4.16.8",
+                "4.16.7",
+                "4.16.6",
+                "4.16.5",
+                "4.16.4",
+                "4.16.3",
+                "4.16.2",
+                "4.16.1",
+                "4.16.0",
+                "4.15.7",
+                "4.15.6",
+                "4.15.5",
+                "4.15.4",
+                "4.15.3",
+                "4.15.2",
+                "4.15.1",
+                "4.15.0",
+                "4.14.16",
+                "4.14.15",
+                "4.14.14",
+                "4.14.13",
+                "4.14.12",
+                "4.14.11",
+                "4.14.10",
+                "4.14.9",
+                "4.14.8",
+                "4.14.7",
+                "4.14.6",
+                "4.14.5",
+                "4.14.4",
+                "4.14.3",
+                "4.14.2",
+                "4.14.1",
+                "4.14.0",
+                "4.13.1",
+                "4.13.0",
+                "4.12.2",
+                "4.12.1",
+                "4.12.0",
+                "4.11.8",
+                "4.11.7",
+                "4.11.6",
+                "4.11.5",
+                "4.11.4",
+                "4.11.3",
+                "4.11.2",
+                "4.11.1",
+                "4.11.0",
+                "4.10.5",
+                "4.10.4",
+                "4.10.3",
+                "4.10.2",
+                "4.10.1",
+                "4.10.0",
+                "4.9.9",
+                "4.9.8",
+                "4.9.7",
+                "4.9.6",
+                "4.9.5",
+                "4.9.4",
+                "4.9.3",
+                "4.9.2",
+                "4.9.1",
+                "4.9.0",
+                "4.8.12",
+                "4.8.11",
+                "4.8.10",
+                "4.8.9",
+                "4.8.8"
+            ]
+            return random.choice(app_versions)
 
         @classmethod
         def Generate(cls: Type[_T], system: str = None, unique_id: str = None) -> _T:
@@ -437,7 +585,8 @@ class API(BaseObject):
             else:
                 deviceInfo = LinuxDevice.RandomDevice(unique_id)
 
-            return cls(device_model=deviceInfo.model, system_version=deviceInfo.version)
+            return cls(device_model=deviceInfo.model, system_version=deviceInfo.version,
+                       app_version=cls._generate_app_version())
 
     class TelegramAndroid(APIData):
         """

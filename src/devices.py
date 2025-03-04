@@ -873,7 +873,7 @@ class GeneralDesktopDevice(SystemInfo):
 
 
 class WindowsDevice(GeneralDesktopDevice):
-    system_versions = ["Windows 10", "Windows 8", "Windows 8.1", "Windows 7"]
+    system_versions = ["Windows 11", "Windows 10", "Windows 8", "Windows 8.1", "Windows 7"]
 
     deviceList: List[DeviceInfo] = []
 
@@ -973,6 +973,7 @@ class macOSDevice(GeneralDesktopDevice):
     #       and: https://github.com/brunerd/jamfTools/blob/main/EAs/macOSCompatibility.sh
     #
     # Remark: https://www.innerfence.com/howto/apple-ios-devices-dates-versions-instruction-sets
+    # Added 12+ MacOS versions: https://apple.fandom.com/wiki/List_of_Mac_OS_versions
 
     device_models = [
         "MacBookPro16,4",
@@ -1082,6 +1083,83 @@ class macOSDevice(GeneralDesktopDevice):
         "macOS 12.0",
         "macOS 12.0.1",
         "macOS 12.1",
+        "macOS 12.2",
+        "macOS 12.2.1",
+        "macOS 12.3",
+        "macOS 12.3.1",
+        "macOS 12.4",
+        "macOS 12.5",
+        "macOS 12.5.1",
+        "macOS 12.6",
+        "macOS 12.6.1",
+        "macOS 12.6.2",
+        "macOS 12.6.3",
+        "macOS 12.6.4",
+        "macOS 12.6.5",
+        "macOS 12.6.6",
+        "macOS 12.6.7",
+        "macOS 12.6.8",
+        "macOS 12.6.9",
+        "macOS 12.7",
+        "macOS 12.7.1",
+        "macOS 12.7.2",
+        "macOS 12.7.3",
+        "macOS 12.7.4",
+        "macOS 12.7.5",
+        "macOS 12.7.6",
+        "macOS 13.0",
+        "macOS 13.0.1",
+        "macOS 13.1",
+        "macOS 13.2",
+        "macOS 13.2.1",
+        "macOS 13.3",
+        "macOS 13.3.1",
+        "macOS 13.4",
+        "macOS 13.4.1",
+        "macOS 13.5",
+        "macOS 13.5.1",
+        "macOS 13.5.2",
+        "macOS 13.6",
+        "macOS 13.6.1",
+        "macOS 13.6.2",
+        "macOS 13.6.3",
+        "macOS 13.6.4",
+        "macOS 13.6.5",
+        "macOS 13.6.6",
+        "macOS 13.6.7",
+        "macOS 13.6.8",
+        "macOS 13.6.9",
+        "macOS 13.7",
+        "macOS 13.7.1",
+        "macOS 13.7.2",
+        "macOS 13.7.3",
+        "macOS 13.7.4",
+        "macOS 14.0",
+        "macOS 14.1",
+        "macOS 14.1.1",
+        "macOS 14.1.2",
+        "macOS 14.2",
+        "macOS 14.2.1",
+        "macOS 14.3",
+        "macOS 14.3.1",
+        "macOS 14.4",
+        "macOS 14.4.1",
+        "macOS 14.5",
+        "macOS 14.6",
+        "macOS 14.6.1",
+        "macOS 14.7",
+        "macOS 14.7.1",
+        "macOS 14.7.2",
+        "macOS 14.7.3",
+        "macOS 14.7.4",
+        "macOS 15.0",
+        "macOS 15.0.1",
+        "macOS 15.1",
+        "macOS 15.1.1",
+        "macOS 15.2",
+        "macOS 15.3",
+        "macOS 15.3.1",
+        "macOS 15.4",
     ]
 
     deviceList: List[DeviceInfo] = []
