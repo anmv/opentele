@@ -586,7 +586,7 @@ class API(BaseObject):
                 deviceInfo = LinuxDevice.RandomDevice(unique_id)
 
             return cls(device_model=deviceInfo.model, system_version=deviceInfo.version,
-                       app_version=cls._generate_app_version())
+                       app_version=cls._generate_tdesktop_app_version())
 
     class TelegramAndroid(APIData):
         """
