@@ -563,7 +563,7 @@ class API(BaseObject):
                 "4.8.9",
                 "4.8.8"
             ]
-            return random.choice(app_versions)
+            return f'{random.choice(app_versions)} x64'
 
         @classmethod
         def Generate(cls: Type[_T], system: str = None, unique_id: str = None) -> _T:
