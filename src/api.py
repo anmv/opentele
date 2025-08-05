@@ -354,7 +354,7 @@ class API(BaseObject):
         api_hash = "b18441a1ff607e10a989891a5462e627"
         device_model = "Desktop"
         system_version = "Windows 10"
-        app_version = "3.4.3 x64"
+        app_version = "5.16.5 x64"
         lang_code = "en"
         system_lang_code = "en-US"
         lang_pack = "tdesktop"
@@ -471,7 +471,8 @@ class API(BaseObject):
             else:
                 deviceInfo = LinuxDevice.RandomDevice(unique_id)
 
-            return cls(device_model=deviceInfo.model, system_version=deviceInfo.version,
+            return cls(device_model=deviceInfo.model,
+                       system_version=deviceInfo.version,
                        app_version=cls._generate_tdesktop_app_version())
 
     class TelegramAndroid(APIData):
@@ -484,7 +485,7 @@ class API(BaseObject):
             api_hash (`str`)         : `"eb06d4abfb49dc3eeb1aeb98ae0f581e"`
             device_model (`str`)     : `"Samsung SM-G998B"`
             system_version (`str`)   : `"SDK 31"`
-            app_version (`str`)      : `"8.4.1 (2522)"`
+            app_version (`str`)      : `"11.14.0 (6102)" # Версия от 05.04.25`
             lang_code (`str`)        : `"en"`
             system_lang_code (`str`) : `"en-US"`
             lang_pack (`str`)        : `"android"`
@@ -494,7 +495,7 @@ class API(BaseObject):
         api_hash = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
         device_model = "Samsung SM-G998B"
         system_version = "SDK 31"
-        app_version = "8.4.1 (2522)"
+        app_version = "11.14.0 (6102)" # Версия от 05.04.25
         lang_code = "en"
         system_lang_code = "en-US"
         lang_pack = "android"
@@ -546,7 +547,7 @@ class API(BaseObject):
         api_hash = "33c45224029d59cb3ad0c16134215aeb"
         device_model = "iPhone 13 Pro Max"
         system_version = "14.8.1"
-        app_version = "8.4"
+        app_version = "11.13.3"
         lang_code = "en"
         system_lang_code = "en-US"
         lang_pack = "ios"

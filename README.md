@@ -1,6 +1,6 @@
 <!-- vim: syntax=Markdown -->
 
-# opentele
+# opentele [fork]
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/thedemons/opentele/main/opentele.png" alt="logo" width="180"/>
@@ -20,10 +20,15 @@
 <a href="https://github.com/psf/black"><img alt="code format" src="https://img.shields.io/badge/code%20style-black-000000.svg?logo=python&logoColor=%232d93c1"/></a>
 </p>
 
-## In this fork: 
-- added new macos version
-- added new telegram desktop version
+## Changes in this fork: 
+- Remove MacOS older 15.0
+- Remove all devices Desktop, Android, iPhone older 2019 year
+- Remove Telegram Desktop version older 03.2025
+- Add new MacOS, iOS, Android SDK
+- Add new devices for Desktop, Android, iPhone
+- Add new Telegram apps versions
 
+## Official Readme from source repository
 A **Python Telegram API Library** for converting between **tdata** and **telethon** sessions, with built-in **official Telegram APIs**. [**Read the documentation**](https://opentele.readthedocs.io/en/latest/documentation/telegram-desktop/tdesktop/).
 
 # NOTICE
