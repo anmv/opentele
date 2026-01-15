@@ -355,8 +355,8 @@ class API(BaseObject):
         device_model = "Desktop"
         system_version = "Windows 10"
         app_version = "5.16.5 x64"
-        lang_code = "ru"
-        system_lang_code = "ru-RU"
+        lang_code = "en"
+        system_lang_code = "en-US"
         lang_pack = "tdesktop"
 
         @typing.overload
