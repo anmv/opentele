@@ -7,8 +7,7 @@ from types import FunctionType
 
 import abc
 
-APP_VERSION = 3004000
-TDF_MAGIC = b"TDF$"
+
 
 _T = TypeVar("_T")
 _TCLS = TypeVar("_TCLS", bound=type)

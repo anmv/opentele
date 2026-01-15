@@ -2,7 +2,6 @@ from __future__ import annotations
 import inspect
 import types
 import typing
-from PyQt5.QtCore import QDataStream
 
 
 class OpenTeleException(BaseException):  # nocov
@@ -59,158 +58,14 @@ class OpenTeleException(BaseException):  # nocov
             parent_list.reverse()
             reason += "".join(f"{i}." for i in parent_list[1:])
             reason += self._caller_method + "() ]"
-            # reason += f"\n>\t{self._caller_method}({self._caller_method_params})"
         else:
             reason += f"{self._caller_method}() ]"
-            # reason += f"{self._caller_method}({self._caller_method_params}) ]"
         return reason
-
-
-class TFileNotFound(OpenTeleException):
-    """
-    Could not find or open the file
-    """
-
-
-class TDataInvalidMagic(OpenTeleException):
-    """
-    TData file has an invalid magic data, which is the first 4 bytes of the file\n
-    This usually mean that the file is corrupted or not in the supported formats
-    """
-
-
-class TDataInvalidCheckSum(OpenTeleException):
-    """
-    TData file has an invalid checksum\n
-    This usually mean that the file is corrupted or not in the supported formats
-    """
-
-
-class TDataBadDecryptKey(OpenTeleException):
-    """
-    Could not decrypt the data with this key\n
-    This usually mean that the file is password-encrypted
-    """
-
-
-class TDataWrongPasscode(OpenTeleException):
-    """
-    Wrong passcode to decrypt tdata folder\n
-    """
-
-
-class TDataBadEncryptedDataSize(OpenTeleException):
-    """
-    The encrypted data size part of the file is corrupted
-    """
-
-
-class TDataBadDecryptedDataSize(OpenTeleException):
-    """
-    The decrypted data size part of the file is corrupted
-    """
-
-
-class TDataBadConfigData(OpenTeleException):
-    """
-    TData contains bad config data that couldn't be parsed
-    """
-
-
-class QDataStreamFailed(OpenTeleException):
-    """
-    Could not stream data from QDataStream\n
-    Please check the QDataStream.status() for more information
-    """
-
-
-class AccountAuthKeyNotFound(OpenTeleException):
-    """
-    Account.authKey is missing, something went wrong
-    """
-
-
-class TDataReadMapDataFailed(OpenTeleException):
-    """
-    Could not read map data
-    """
-
-
-class TDataReadMapDataIncorrectPasscode(OpenTeleException):
-    """
-    Could not read map data because of incorrect passcode
-    """
-
-
-class TDataAuthKeyNotFound(OpenTeleException):
-    """
-    Could not find authKey in TData
-    """
-
-
-class MaxAccountLimit(OpenTeleException):
-    """
-    Maxed out limit for accounts per tdesktop client
-    """
-
-
-class TDesktopUnauthorized(OpenTeleException):
-    """
-    TDesktop client is unauthorized
-    """
-
-
-class TelethonUnauthorized(OpenTeleException):
-    """
-    Telethon client is unauthorized
-    """
-
-
-class TDataSaveFailed(OpenTeleException):
-    """
-    Could not save TDesktop to tdata folder
-    """
-
-
-class TDesktopNotLoaded(OpenTeleException):
-    """
-    TDesktop instance has no account
-    """
-
-
-class TDesktopHasNoAccount(OpenTeleException):
-    """
-    TDesktop instance has no account
-    """
-
-
-class TDAccountNotLoaded(OpenTeleException):
-    """
-    TDesktop account hasn't been loaded yet
-    """
-
-
-class NoPasswordProvided(OpenTeleException):
-    """
-    You can't live without a password bro
-    """
-
-
-class PasswordIncorrect(OpenTeleException):
-    """
-    incorrect passwrd
-    """
-
-
-class LoginFlagInvalid(OpenTeleException):
-    """
-    Invalid login flag
-    """
 
 
 class NoInstanceMatched(OpenTeleException):
     """
-    Invalid login flag
+    No instance of API matches the arguments
     """
 
 
@@ -324,13 +179,3 @@ def Expects(
             fail(exception)
 
         raise exception
-
-
-def ExpectStreamStatus(stream: QDataStream, message: str = "Could not stream data"):
-    Expects(
-        stream.status() == QDataStream.Status.Ok,
-        stack_index=2,
-        exception=QDataStreamFailed(
-            "Could not read keys count from mtp authorization.", stack_index=2
-        ),
-    )
