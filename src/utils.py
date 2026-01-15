@@ -90,7 +90,8 @@ class extend_class(object):  # nocov
             )
 
         newAttributes = dict(decorated_cls.__dict__)
-        crossDelete = ["__abstractmethods__", "__module__", "_abc_impl", "__doc__"]
+        # __firstlineno__ and __static_attributes__ added in Python 3.13 (PEP 749)
+        crossDelete = ["__abstractmethods__", "__module__", "_abc_impl", "__doc__", "__firstlineno__", "__static_attributes__"]
         [
             (newAttributes.pop(cross) if cross in newAttributes else None)
             for cross in crossDelete
